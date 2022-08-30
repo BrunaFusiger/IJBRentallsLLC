@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
@@ -12,16 +12,42 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-  * {
-    background-color: aquamarine;
-    font-family: 'Open Sans';
-    letter-spacing: 0.05em;
-    font-size: 1rem;
+* {
+  background-color: aquamarine;
+  font-family: 'Open Sans';
+  letter-spacing: 0.05em;
+  font-size: 1rem;
 
-    a, p {
-      text-decoration: none;
-      color: #fff;
+  a,
+  p {
+    text-decoration: none;
+    color: #fff;
+  }
 
+  ul {
+    display: flex;
+    gap: 2rem;
+
+    li {
+      list-style: none;
     }
   }
+
+  .uppercase {
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+  }
+
+  .general-margin {
+    margin-inline: 5rem;
+  }
+
+  svg {
+    path {
+      &:hover {
+        fill: $baseGreen;
+      }
+    }
+  }
+}
 </style>

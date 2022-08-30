@@ -1,5 +1,5 @@
 <template>
-    <router-link to="/apartaments" class="button">{{  msg  }}</router-link>
+    <router-link to="/apartaments" class="button uppercase">{{  msg  }}</router-link>
 </template>
 
 <script>
@@ -22,9 +22,6 @@ export default defineComponent({
     padding: .5rem 1rem;
 
     color: #fff;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: .1rem;
     font-weight: 400;
 
     transition: .5s;
