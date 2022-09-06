@@ -1,5 +1,5 @@
 <template>
-    <router-link to="/apartaments" class="button uppercase">{{  msg  }}</router-link>
+        <router-link to="/apartaments" class="button uppercase">{{ msg }}</router-link>
 </template>
 
 <script>
@@ -13,7 +13,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .button {
     background-color: $baseGreen;
     opacity: 0.8;
@@ -24,13 +24,16 @@ export default defineComponent({
     color: #fff;
     font-weight: 400;
 
-    transition: .5s;
+    transition: color .2s, background-color .3s;
 
     &:hover {
         background-color: rgba($color: #fff, $alpha: .8);
-        border: 1px solid $baseGreen;
         color: $baseGreen;
-        transform: scale(1.05);
+    }
+
+    &-local {
+        padding: .5rem 4rem;
+        border-radius: 15px;
     }
 }
 </style>

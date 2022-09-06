@@ -12,11 +12,13 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
+
 * {
-  background-color: aquamarine;
   font-family: 'Open Sans';
   letter-spacing: 0.05em;
   font-size: 1rem;
+  margin: 0;
 
   a,
   p {
@@ -38,16 +40,44 @@ export default defineComponent({
     letter-spacing: .1rem;
   }
 
+  //general aligment|
   .general-margin {
     margin-inline: 5rem;
   }
 
-  svg {
-    path {
-      &:hover {
-        fill: $baseGreen;
-      }
+  .title {
+    font-family: 'Aboreto', cursive;
+  }
+
+  //animation Y
+  .animtionY {
+    animation: movingY .8s ease-in-out 0ms infinite alternate-reverse;
+  }
+
+  @keyframes movingY {
+    0% {
+
+      transform: translateY(5%);
     }
+
+    50% {
+      opacity: 1;
+    }
+
+    100% {
+
+      transform: translateY(-5%);
+    }
+  }
+
+  h2 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 4rem;
+    letter-spacing: 0.2em;
+
+    color: $baseBlack;
   }
 }
 </style>
