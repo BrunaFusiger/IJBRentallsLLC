@@ -9,24 +9,22 @@
         </div>
       </section>
 
-      <div class="arrow">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+      <Arrow />
     </div>
 
     <div class="advantages general-margin">
       <div class="advantages-aligment">
+
         <section class="advantages-carousel">
-          <Carousel />
-          <!-- <h2>aqui vai um carousel</h2> -->
+          <carousel :slides="slides" :interval="3000" controls indicators></carousel>
         </section>
+
         <section class="advantages-text">
           <h2><span>ADVANTAGES</span> OF <br> RENTING A HOUSE WITH</h2>
           <h1 class="title">IJB</h1>
           <Button class="button-advantages" msg="Rent now" />
         </section>
+
       </div>
     </div>
   </div>
@@ -35,7 +33,8 @@
 <script>
 import Nav from "@/components/Nav.vue";
 import Button from "@/components/Button.vue";
-import Carousel from  "@/components/Carousel.vue"
+import Carousel from "@/components/Carousel/Carousel.vue";
+import Arrow from "@/components/Arrow.vue";
 
 export default {
   name: 'Home',
@@ -43,7 +42,23 @@ export default {
     Nav,
     Button,
     Carousel,
-},
+    Arrow
+  },
+  data() {
+    return {
+      // slides: [
+      //   {image: "", message: ""},
+      //   {image: "", message: ""},
+      //   {image: "", message: ""},
+      // ],
+      slides: [
+        "/images/advantages/family.webp",
+        "/images/advantages/house.webp",
+        "/images/advantages/garden.webp"
+      ]
+    }
+  }
+
 }
 </script>
 
@@ -91,50 +106,6 @@ export default {
     margin-bottom: 2rem;
   }
 
-  .arrow {
-    position: absolute;
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transform: rotate(360deg);
-    cursor: pointer;
-
-    span {
-      display: block;
-      width: 2rem;
-      height: 2rem;
-      border-bottom: 5px solid $baseWhite;
-      border-right: 5px solid $baseWhite;
-      transform: translate(-45deg);
-      margin: -10px;
-      animation: animate 2s infinite;
-
-      &:nth-child(2) {
-        animation-delay: -0.2s;
-      }
-
-      &:nth-child(3) {
-        animation-delay: -0.4s;
-      }
-
-      @keyframes animate {
-        0% {
-          opacity: 0;
-          transform: rotate(45deg) translate(-20px, -20px);
-        }
-
-        50% {
-          opacity: 1;
-        }
-
-        100% {
-          opacity: 0;
-          transform: rotate(45deg) translate(20px, 20px);
-        }
-      }
-    }
-  }
-
   .advantages {
     @include heightPage;
 
@@ -156,20 +127,26 @@ export default {
           letter-spacing: 0.2em;
         }
 
-      h1 {
-        font-size: 5rem;
-        font-weight: 400;
-        margin-block: 2rem;
+        h1 {
+          font-size: 5rem;
+          font-weight: 400;
+          margin-block: 2rem;
+        }
       }
     }
-  }
-  .button-advantages {
-    padding: .5rem 2rem;
 
-    &:hover {
-      border: 1px solid $baseGreen;
+    .button-advantages {
+      padding: .5rem 2rem;
+
+      &:hover {
+        border: 1px solid $baseGreen;
+      }
+    }
+
+    &-carousel {
+      width: 50%;
+
     }
   }
-}
 }
 </style>
