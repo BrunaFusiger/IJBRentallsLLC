@@ -79,5 +79,16 @@ export default defineComponent({
 
     color: $baseBlack;
   }
+
+  h1, h2, p {
+    cursor: default;
+  }
+
+  #social-links {
+      align-items: center;
+      width: 15%;
+      margin-inline: auto;
+      margin-block:  1rem;
+    }
 }
 </style>

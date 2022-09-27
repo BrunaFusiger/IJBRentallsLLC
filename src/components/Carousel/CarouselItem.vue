@@ -1,17 +1,20 @@
 <template>
     <transition :name="transitionEffect">
         <div class="carousel-item" v-show="currentSlide === index" @mouseenter="$emit('mouseenter')" @mouseout="$emit('mouseout')">
-            <img :src="slide" />
+            <img :src="slide.image" />
+            <CarouselMessage :message="slide.message" />
         </div>
     </transition>
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent } from 'vue';
+import CarouselMessage from "../Carousel/CarouselMessage.vue";
 
 export default defineComponent({
+    components: { CarouselMessage },
     emits: ['mouseenter', 'mouseout'],
-    props: ["slide", "currentSlide", "index", "direction"],
+    props: ["slide", "currentSlide", "index", "direction", "message"],
     computed: {
         transitionEffect() {
             return this.direction === "right" ? "slide-out" : "slide-in";
@@ -22,10 +25,7 @@ export default defineComponent({
 
 <style scoped lang="scss">
 
-.slide-in-enter-active,
-.slide-in-leave-active,
-.slide-out-enter-active,
-.slide-out-leave-active {
+.carousel-item {
     transition: all 1s ease-in-out;
 }
 

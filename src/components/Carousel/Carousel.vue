@@ -6,12 +6,10 @@
                 @switch="switchSlide($event)">
             </carousel-indicators>
 
-            <carousel-item v-for="(slide, index) in slides" :slide="slide" :key="`item-${index}`"
+            <carousel-item v-for="(slide, index) in slides" :slide="slide" :key="index"
                 :current-slide="currentSlide" :index="index" :direction="direction" @mouseenter="stopSlideTimer"
                 @mouseout="startSlideTimer">
             </carousel-item>
-
-            <CarouselMessage :message="message" />
 
             <carousel-controls v-if="controls" @prev="prev" @next="next"></carousel-controls>
         </div>
@@ -22,7 +20,6 @@
 import CarouselItem from "../Carousel/CarouselItem.vue";
 import CarouselControls from "../Carousel/CarouselControls.vue";
 import CarouselIndicators from "../Carousel/CarouselIndicators.vue"
-import CarouselMessage from "../Carousel/CarouselMessage.vue";
 
 export default {
     name: "Carousel",
@@ -44,24 +41,17 @@ export default {
             default: 5000
         }
     },
-    components: { CarouselItem, CarouselControls, CarouselIndicators, CarouselMessage },
+    components: { CarouselItem, CarouselControls, CarouselIndicators },
     data() {
         return {
             currentSlide: 0,
             slideInterval: null,
-            direction: "right",
-            message: null,
-            messages: [
-                 "Ease and comfort for you and your family",
-                 "Big houses in perfect condition",
-                 "Beautiful, well-kept gardens"
-            ],
+            direction: "right"
         }
     },
     methods: {
         setCurrentSlide(index) {
             this.currentSlide = index;
-            this.message = this.messages[index];
         },
         prev(step = -1) {
             const index = this.currentSlide > 0 ? this.currentSlide + step : this.slides.length - 1;
