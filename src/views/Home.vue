@@ -9,7 +9,7 @@
         </div>
       </section>
 
-      <Arrow />
+      <Arrow @click="scrollPage" />
     </div>
 
     <div class="advantages general-margin">
@@ -24,9 +24,44 @@
           <h1 class="title">IJB</h1>
           <Button class="button-advantages" msg="Rent now" />
         </section>
-
       </div>
     </div>
+
+    <div id="feedbacks">
+      <section id="feedbacks-text">
+        <h2>WHAT IS IT LIKE TO RENT AND LIVE IN OUR APARTAMENTS?</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla maecenas sapien condimentum nam. Ac lorem diam
+          id cursus feugiat. NLorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla maecenas sapien condimentum
+          nam. Ac lorem diam id cursus feugiat. </p>
+
+        <div id="feedbacks-text-people">
+          <img src="https://picsum.photos/200/300" alt="Person's photo">
+          <p>Simone Fusiger</p>
+        </div>
+      </section>
+    </div>
+
+    <div id="contact">
+      <h2>CONTACT</h2>
+      <ul id="contact-list">
+        <li>
+          <img src="@/assets/images/place.svg" alt="map icon">
+          7103 Harrison Ave., Pittsburgh PA 15218
+        </li>
+        <li>
+          <img src="@/assets/images/phone.svg" alt="phone icon">
+          +1 (412) 715-3768
+        </li>
+        <li>
+          <img src="@/assets/images/mail.svg" alt="mail icon">
+          ijbrentalsllc@gmail.com
+        </li>
+      </ul>
+
+      <SocialLinks id="social-links" class="green" />
+    </div>
+
+    <Footer />
   </div>
 </template>
 
@@ -35,6 +70,8 @@ import Nav from "@/components/Nav.vue";
 import Button from "@/components/Button.vue";
 import Carousel from "@/components/Carousel/Carousel.vue";
 import Arrow from "@/components/Arrow.vue";
+import SocialLinks from "@/components/SocialLinks.vue";
+import Footer from "@/components/Footer.vue";
 
 export default {
   name: 'Home',
@@ -42,20 +79,22 @@ export default {
     Nav,
     Button,
     Carousel,
-    Arrow
-  },
+    Arrow,
+    SocialLinks,
+    Footer
+},
   data() {
     return {
-      // slides: [
-      //   {image: "", message: ""},
-      //   {image: "", message: ""},
-      //   {image: "", message: ""},
-      // ],
       slides: [
-        "/images/advantages/family.webp",
-        "/images/advantages/house.webp",
-        "/images/advantages/garden.webp"
-      ]
+        { image: "/images/advantages/family.webp", message: "Ease and comfort for you and your family" },
+        { image: "/images/advantages/house.webp", message: "Big houses in perfect condition" },
+        { image: "/images/advantages/garden.webp", message: "Beautiful, well-kept gardens" },
+      ],
+    }
+  },
+  methods: {
+    scrollPage() {
+      window.scrollTo({ top: 610, behavior: 'smooth' });
     }
   }
 
@@ -146,6 +185,79 @@ export default {
     &-carousel {
       width: 50%;
 
+    }
+  }
+
+  #feedbacks {
+    background-image: url("@/assets/images/texture.svg");
+    background-color: #E0EDEA;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    &-text {
+      text-align: center;
+      width: 50%;
+      margin-inline: auto;
+      padding-block: 3rem;
+
+      h2,
+      p {
+        color: $baseBlack;
+      }
+
+      h2 {
+        line-height: 3rem;
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 30px;
+        letter-spacing: 0.4px;
+        margin-top: 2rem;
+      }
+
+      &-people {
+        margin-top: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+
+        img {
+          border-radius: 50%;
+          width: 50px;
+          height: 50px;
+        }
+
+        p {
+          padding-top: 0;
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  #contact {
+    text-align: center;
+
+    &-list {
+      display: block;
+      text-align: start;
+      width: 40%;
+      margin: 1rem auto;
+
+      li {
+        margin-bottom: 2rem;
+        cursor: default;
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+
+        img {
+          width: 25px;
+        }
+      }
     }
   }
 }
