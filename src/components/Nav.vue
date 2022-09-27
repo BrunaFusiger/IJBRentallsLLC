@@ -5,7 +5,7 @@
     </router-link>
 
     <ul class="nav-links">
-      <SocialLinks id="social-links"/>
+      <SocialLinks id="links-svg"/>
       <li>
         <a href="#contact">
           <p class="uppercase">Contact</p>
@@ -62,7 +62,7 @@ export default {
       }
     }
 
-    #social-links {
+    #links-svg {
       svg {
           &:hover {
             border-bottom: 3px solid $baseGreen;
