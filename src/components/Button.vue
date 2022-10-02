@@ -1,5 +1,5 @@
 <template>
-        <router-link to="/apartaments" class="button uppercase">{{ msg }}</router-link>
+    <router-link to="/apartaments" class="button uppercase">{{ msg }}</router-link>
 </template>
 
 <script>
@@ -19,6 +19,7 @@ export default defineComponent({
     opacity: 0.8;
     border-radius: 20px;
 
+    box-sizing: border-box;
     padding: .5rem 1rem;
 
     color: #fff;
@@ -34,6 +35,10 @@ export default defineComponent({
     &-local {
         padding: .5rem 4rem;
         border-radius: 15px;
+    }
+
+    @include responsive {
+        font-size: 14px;
     }
 }
 </style>

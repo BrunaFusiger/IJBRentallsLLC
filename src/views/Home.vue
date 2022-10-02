@@ -146,12 +146,12 @@ export default {
   }
 
   .advantages {
-    @include heightPage;
+    position: relative;
+    max-width: 100%;
 
     &-aligment {
-      height: 60%;
       position: relative;
-      transform: translateY(8rem);
+      margin-block: 7rem;
       display: flex;
       justify-content: space-between;
 
@@ -183,7 +183,11 @@ export default {
     }
 
     &-carousel {
-      width: 50%;
+      width: 500px;
+
+      @include responsive {
+            width: 50%;
+        }
 
     }
   }
@@ -240,6 +244,7 @@ export default {
 
   #contact {
     text-align: center;
+    margin-top: 3rem;
 
     &-list {
       display: block;
@@ -261,4 +266,5 @@ export default {
     }
   }
 }
+
 </style>

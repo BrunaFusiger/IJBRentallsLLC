@@ -6,9 +6,8 @@
                 @switch="switchSlide($event)">
             </carousel-indicators>
 
-            <carousel-item v-for="(slide, index) in slides" :slide="slide" :key="index"
-                :current-slide="currentSlide" :index="index" :direction="direction" @mouseenter="stopSlideTimer"
-                @mouseout="startSlideTimer">
+            <carousel-item v-for="(slide, index) in slides" :slide="slide" :key="index" :current-slide="currentSlide"
+                :index="index" :direction="direction" @mouseenter="stopSlideTimer" @mouseout="startSlideTimer">
             </carousel-item>
 
             <carousel-controls v-if="controls" @prev="prev" @next="next"></carousel-controls>

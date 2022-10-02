@@ -5,7 +5,7 @@
     </router-link>
 
     <ul class="nav-links">
-      <SocialLinks id="links-svg"/>
+      <SocialLinks id="links-svg" />
       <li>
         <a href="#contact">
           <p class="uppercase">Contact</p>
@@ -27,7 +27,7 @@ export default {
   components: {
     Button,
     SocialLinks
-}
+  }
 }
 </script>
 
@@ -35,8 +35,8 @@ export default {
 .nav {
   max-width: 100vw;
   max-height: 20vh;
-  position: relative;
   justify-content: space-between;
+  position: relative;
   display: flex;
   margin-top: 1rem;
 
@@ -48,6 +48,10 @@ export default {
 
   &-links {
     align-items: center;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: 0;
 
     li {
       a {
@@ -64,10 +68,10 @@ export default {
 
     #links-svg {
       svg {
-          &:hover {
-            border-bottom: 3px solid $baseGreen;
-          }
+        &:hover {
+          border-bottom: 3px solid $baseGreen;
         }
+      }
     }
   }
 }
