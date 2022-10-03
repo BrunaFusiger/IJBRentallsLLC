@@ -90,5 +90,6 @@ export default defineComponent({
       margin-inline: auto;
       margin-block:  1rem;
     }
+
 }
 </style>

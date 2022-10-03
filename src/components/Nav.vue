@@ -26,8 +26,8 @@ export default {
   name: "Nav",
   components: {
     Button,
-    SocialLinks
-  }
+    SocialLinks,
+}
 }
 </script>
 
@@ -41,6 +41,11 @@ export default {
   margin-top: 1rem;
 
   &-url {
+    @include responsiveHalf {
+      margin-inline: auto;
+      width: 95px;
+    }
+
     &-logo {
       height: 100%;
     }
@@ -52,6 +57,10 @@ export default {
     right: 0;
     bottom: 0;
     top: 0;
+
+    @include responsiveHalf {
+      display: none;
+    }
 
     li {
       a {

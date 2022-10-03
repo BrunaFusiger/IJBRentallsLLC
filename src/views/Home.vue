@@ -1,6 +1,9 @@
 <template>
   <div class="home">
     <div id="banner" class="banner-img background">
+
+      <Hamburgers id="menu" />
+
       <Nav />
       <section class="banner-text general-margin">
         <h1 class="title title-local">THE BEST HOMES AND APARTAMENTS IN PITTSBURGH FOR RENT </h1>
@@ -72,6 +75,7 @@ import Carousel from "@/components/Carousel/Carousel.vue";
 import Arrow from "@/components/Arrow.vue";
 import SocialLinks from "@/components/SocialLinks.vue";
 import Footer from "@/components/Footer.vue";
+import Hamburgers from "@/components/Hamburgers";
 
 export default {
   name: 'Home',
@@ -81,8 +85,10 @@ export default {
     Carousel,
     Arrow,
     SocialLinks,
-    Footer
-},
+    Footer,
+    Hamburgers
+
+  },
   data() {
     return {
       slides: [
@@ -107,6 +113,20 @@ export default {
     @include heightPage;
     z-index: 100;
     box-shadow: 0 0 10px 4px $baseBlack;
+
+    #menu {
+      @include responsiveHalf {
+        display: block;
+      }
+
+      display: none;
+      position: fixed;
+      right: 0;
+      top: 100px;
+      background-color: $baseGreen;
+      border-radius: 50px 0 0 50px;
+    }
+
   }
 
   .banner-img {
@@ -186,8 +206,8 @@ export default {
       width: 500px;
 
       @include responsive {
-            width: 50%;
-        }
+        width: 50%;
+      }
 
     }
   }
@@ -266,5 +286,4 @@ export default {
     }
   }
 }
-
 </style>
