@@ -57,6 +57,11 @@ export default defineComponent({
         height: 100%;
         box-sizing: border-box;
         position: absolute;
+
+        
+      @include responsiveHalfMobile {
+        height: 70%;
+      }
     }
 }
 </style>

@@ -13,6 +13,7 @@ export default defineComponent({
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&display=swap');
 
 * {
   font-family: 'Open Sans';
@@ -43,6 +44,10 @@ export default defineComponent({
   //general aligment|
   .general-margin {
     margin-inline: 5rem;
+
+    @include responsiveHalf {
+      margin-inline: 2rem;
+    }
   }
 
   .title {
@@ -70,6 +75,7 @@ export default defineComponent({
     }
   }
 
+
   h2 {
     font-style: normal;
     font-weight: 400;
@@ -78,18 +84,28 @@ export default defineComponent({
     letter-spacing: 0.2em;
 
     color: $baseBlack;
+
+    @include responsiveHalf {
+      font-size: 20px;
+      line-height: 2.5rem;
+    }
   }
 
-  h1, h2, p {
+  h1,
+  h2,
+  p {
     cursor: default;
   }
 
-  #social-links {
-      align-items: center;
-      width: 15%;
-      margin-inline: auto;
-      margin-block:  1rem;
-    }
+  .social-links {
+    align-items: center;
+    justify-content: center;
+    margin-left: -40px;
+    margin-block: 4rem;
+  }
 
+  .pointer {
+    cursor: pointer;
+  }
 }
 </style>

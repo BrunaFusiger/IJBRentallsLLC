@@ -7,12 +7,12 @@
     <ul class="nav-links">
       <SocialLinks id="links-svg" />
       <li>
-        <a href="#contact">
-          <p class="uppercase">Contact</p>
+        <a @click="goToContactArea">
+          <p class="uppercase pointer">Contact</p>
         </a>
       </li>
       <li>
-        <Button msg="Find your home" />
+        <Button msg="Find your home"  ref="bottom" />
       </li>
     </ul>
   </nav>
@@ -27,6 +27,12 @@ export default {
   components: {
     Button,
     SocialLinks,
+},
+
+methods: {
+  goToContactArea() {
+    window.scrollTo(({ top: document.getElementById("contact").offsetTop, behavior: 'smooth' }));
+  }
 }
 }
 </script>
@@ -48,6 +54,10 @@ export default {
 
     &-logo {
       height: 100%;
+      
+      @include responsiveHalf {
+        height: 70%;
+      }
     }
   }
 
@@ -66,7 +76,6 @@ export default {
       a {
         p {
           transition: .5s;
-          cursor: pointer;
 
           &:hover {
             color: $baseGreen;

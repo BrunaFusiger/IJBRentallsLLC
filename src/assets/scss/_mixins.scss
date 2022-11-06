@@ -15,3 +15,16 @@
       @content;
     }
   }
+
+  @mixin responsiveHalfMobile {
+    @media (max-width: 500px) {
+      @content;
+    }
+  }
+
+
+  @mixin responsiveMobile {
+    @media (max-width: 400px) {
+      @content;
+    }
+  }

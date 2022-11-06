@@ -1,8 +1,8 @@
 <template>
     <div id="footer">
-        <img src="@/assets/logo.png" alt="IJB Rentals LLC Brand" @click="backToTop">
+        <img src="@/assets/logo.png" alt="IJB Rentals LLC Brand" @click="backToTop" class="pointer">
         <p>&reg; 2022 IJB Rentals LLC</p>
-        <SocialLinks id="social-links" />
+        <SocialLinks class="social-links" />
 
         <a href="https://www.linkedin.com/in/brunafusiger/" target="_blank">Who made this website?</a>
     </div>
@@ -31,7 +31,6 @@ export default {
         img {
             width: 70px;
             margin-bottom: 2rem;
-            cursor: pointer;
         }
 
         p {

@@ -1,5 +1,5 @@
 <template>
-    <div class="arrow">
+    <div class="arrow pointer">
         <span></span>
         <span></span>
         <span></span>
@@ -16,11 +16,13 @@ export default defineComponent({
 <style scoped lang="scss">
 .arrow {
     position: absolute;
-    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
     transform: rotate(360deg);
-    cursor: pointer;
+
+    @include responsiveHalfMobile {
+        top: 65%;
+    }
 
     span {
         display: block;
@@ -31,6 +33,11 @@ export default defineComponent({
         transform: translate(-45deg);
         margin: -10px;
         animation: animate 2s infinite;
+
+        @include responsiveHalf {
+            width: 1rem;
+            height: 1rem;
+        }
 
         &:nth-child(2) {
             animation-delay: -0.2s;

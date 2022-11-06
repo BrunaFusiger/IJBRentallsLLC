@@ -1,6 +1,6 @@
 <template>
     <div class="carousel-indicators">
-        <button class="carousel-indicator-item" :class="{ active: currentIndex === index }"
+        <button class="carousel-indicator-item pointer" :class="{ active: currentIndex === index }"
             v-for="(item, index) in total" :key="index" @click="$emit('switch', index)"></button>
     </div>
 </template>
@@ -22,6 +22,11 @@ export default defineComponent({
     left: 50%;
     bottom: 1.5em;
     z-index: 2;
+
+    @include responsiveHalfMobile {
+      bottom: .5em;
+    }
+
 }
 
 .carousel-indicator-item {
@@ -32,7 +37,6 @@ export default defineComponent({
     margin: 0.2em;
     opacity: .8;
     border-radius: 50%;
-    cursor: pointer;
 }
 
 .active {

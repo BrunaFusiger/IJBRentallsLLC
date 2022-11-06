@@ -1,5 +1,6 @@
 <template>
-    <router-link to="/apartaments" class="button uppercase">{{ msg }}</router-link>
+    <!-- <router-link to="https://www.instagram.com/ijbrentals/" class="button uppercase">{{ msg }}</router-link> -->
+    <a href="https://www.instagram.com/ijbrentals/" target="_blank" class="button uppercase">{{ msg }}</a>
 </template>
 
 <script>

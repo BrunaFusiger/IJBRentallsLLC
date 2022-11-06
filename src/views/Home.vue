@@ -2,7 +2,7 @@
   <div class="home">
     <div id="banner" class="banner-img background">
 
-      <Hamburgers id="menu" />
+      <SideBar id="menu" />
 
       <Nav />
       <section class="banner-text general-margin">
@@ -61,7 +61,7 @@
         </li>
       </ul>
 
-      <SocialLinks id="social-links" class="green" />
+      <SocialLinks class="social-links green" />
     </div>
 
     <Footer />
@@ -75,7 +75,7 @@ import Carousel from "@/components/Carousel/Carousel.vue";
 import Arrow from "@/components/Arrow.vue";
 import SocialLinks from "@/components/SocialLinks.vue";
 import Footer from "@/components/Footer.vue";
-import Hamburgers from "@/components/Hamburgers";
+import SideBar from "@/components/SideBar.vue";
 
 export default {
   name: 'Home',
@@ -86,8 +86,7 @@ export default {
     Arrow,
     SocialLinks,
     Footer,
-    Hamburgers
-
+    SideBar
   },
   data() {
     return {
@@ -114,6 +113,10 @@ export default {
     z-index: 100;
     box-shadow: 0 0 10px 4px $baseBlack;
 
+    @include responsiveHalfMobile {
+      height: 110vh;
+    }
+
     #menu {
       @include responsiveHalf {
         display: block;
@@ -125,6 +128,7 @@ export default {
       top: 100px;
       background-color: $baseGreen;
       border-radius: 50px 0 0 50px;
+      z-index: 100;
     }
 
   }
@@ -148,6 +152,11 @@ export default {
     height: 40vh;
     margin-top: 3rem;
     box-sizing: border-box;
+
+    @include responsiveHalf {
+      margin-inline: auto;
+      text-align: center;
+    }
   }
 
   .title-local {
@@ -163,11 +172,22 @@ export default {
     padding: 1.5rem 0;
 
     margin-bottom: 2rem;
+
+    @include responsiveHalf {
+      text-align: center;
+      font-size: 1.5rem;
+    }
   }
 
   .advantages {
     position: relative;
     max-width: 100%;
+
+    .general-margin {
+      @include responsiveHalf {
+        margin-inline: none;
+      }
+    }
 
     &-aligment {
       position: relative;
@@ -175,8 +195,19 @@ export default {
       display: flex;
       justify-content: space-between;
 
+
+      @include responsiveHalf {
+        flex-direction: column;
+      }
+
       .advantages-text {
         text-align: end;
+
+        @include responsiveHalf {
+          text-align: center;
+          margin-block: -2rem 3rem;
+        }
+
 
         span {
           background-color: $baseGreen;
@@ -184,12 +215,21 @@ export default {
           font-weight: 400;
           font-size: 1.5rem;
           letter-spacing: 0.2em;
+
+          @include responsiveHalf {
+            font-size: 1.2rem;
+          }
         }
 
         h1 {
           font-size: 5rem;
           font-weight: 400;
           margin-block: 2rem;
+
+          @include responsiveHalf {
+            font-size: 3rem;
+            margin-block: 1.5rem;
+          }
         }
       }
     }
@@ -204,11 +244,15 @@ export default {
 
     &-carousel {
       width: 500px;
+      margin-inline: auto;
 
       @include responsive {
         width: 50%;
       }
 
+      @include responsiveHalf {
+        width: 100%;
+      }
     }
   }
 
@@ -217,13 +261,17 @@ export default {
     background-color: #E0EDEA;
 
     background-size: contain;
-    background-repeat: no-repeat;
 
     &-text {
       text-align: center;
       width: 50%;
       margin-inline: auto;
       padding-block: 3rem;
+
+      @include responsiveHalf {
+        width: 80%;
+      }
+
 
       h2,
       p {
@@ -232,6 +280,10 @@ export default {
 
       h2 {
         line-height: 3rem;
+
+        @include responsiveHalf {
+          line-height: 2rem;
+        }
       }
 
       p {
@@ -239,6 +291,10 @@ export default {
         line-height: 30px;
         letter-spacing: 0.4px;
         margin-top: 2rem;
+
+        @include responsiveHalf {
+          font-size: 14px;
+        }
       }
 
       &-people {
@@ -272,6 +328,11 @@ export default {
       width: 40%;
       margin: 1rem auto;
 
+      @include responsiveHalfMobile {
+        width: 60%;
+      }
+
+
       li {
         margin-bottom: 2rem;
         cursor: default;
@@ -279,10 +340,28 @@ export default {
         gap: 1rem;
         align-items: center;
 
+        @include responsiveHalfMobile {
+          &:last-child {
+            font-size: .9rem;
+          }
+        }
+
         img {
           width: 25px;
         }
       }
+    }
+  }
+}
+
+@media(max-width: 800px) {
+  .advantages {
+    &-carousel {
+      order: 2;
+    }
+
+    &-text {
+      order: 1;
     }
   }
 }
