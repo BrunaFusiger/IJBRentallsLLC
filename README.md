@@ -1,19 +1,26 @@
-# ijb-front
+# IJB Rentals LLC
+**IJB Rentals is a North American company, located in Pittsburgh, PA. And this site it was created to present the business and show the customer more about the advantages of renting an apartament from IJB**
 
-## Project setup
-```
-npm install
-```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+----
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Technologies used
+- [x] Vue.Js
+- [x] Scss
+- [x] Javascript
+- [x] HTML
+- [x] Figma (prototyping)
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+----
+## Future implementations
+- [x] Administration Area to add pictures of the apartaments (using Node.js)
+
+----
+## The Project
+
+----
+
+
+
+
+
