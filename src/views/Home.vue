@@ -1,13 +1,18 @@
 <template>
   <div class="home">
     <div id="banner" class="banner-img background">
-
       <SideBar id="menu" />
 
       <Nav />
       <section class="banner-text general-margin">
-        <transition v-show="windowHeight" appear appear-active-class="fade-enter-active" mode="out-in">
-          <h1 class="title title-local">THE BEST HOMES AND APARTAMENTS IN PITTSBURGH FOR RENT
+        <transition
+          v-show="windowHeight"
+          appear
+          appear-active-class="fade-enter-active"
+          mode="out-in"
+        >
+          <h1 class="title title-local">
+            THE BEST HOMES AND APARTAMENTS IN PITTSBURGH FOR RENT
           </h1>
         </transition>
         <div class="animtionY">
@@ -15,17 +20,27 @@
         </div>
       </section>
 
-
       <Arrow @click="scrollPage" />
     </div>
 
     <div class="advantages general-margin">
       <div class="advantages-aligment">
         <section class="advantages-carousel">
-          <carousel :slides="slides" :interval="3000" controls indicators></carousel>
+          <carousel
+            :slides="slides"
+            :interval="3000"
+            controls
+            indicators
+          ></carousel>
         </section>
-        <section class="advantages-text advantages-text-transition" v-show="windowHeightAdvantages">
-          <h2><span>ADVANTAGES</span> OF <br> RENTING A HOUSE WITH</h2>
+        <section
+          class="advantages-text advantages-text-transition"
+          v-show="windowHeightAdvantages"
+        >
+          <h2>
+            <span>ADVANTAGES</span> OF <br />
+            RENTING A HOUSE WITH
+          </h2>
           <h1 class="title">IJB</h1>
           <Button class="button-advantages" msg="Rent now" />
         </section>
@@ -34,13 +49,26 @@
 
     <div id="feedbacks">
       <section id="feedbacks-text">
-        <transition v-show="windowHeightFaq" appear appear-active-class="fade-enter-active" mode="out-in">
+        <transition
+          v-show="windowHeightFaq"
+          appear
+          appear-active-class="fade-enter-active"
+          mode="out-in"
+        >
           <h2>WHAT IS IT LIKE TO RENT AND LIVE IN OUR APARTAMENTS?</h2>
         </transition>
-        <p>We know how important a cozy environment is to be with the family or to rest after a long day at work. And that's why we always seek the best in our apartments and services. And if you have a problem, we will be available to help you solve it.</p>
+        <p>
+          We know how important a cozy environment is to be with the family or
+          to rest after a long day at work. And that's why we always seek the
+          best in our apartments and services. And if you have a problem, we
+          will be available to help you solve it.
+        </p>
 
         <div id="feedbacks-text-people">
-          <img src="@/assets/images/SimoneFusiger.jpeg" alt="Simone Fusiger's photo">
+          <img
+            src="@/assets/images/SimoneFusiger.jpeg"
+            alt="Simone Fusiger's photo"
+          />
           <p>Simone Fusiger</p>
         </div>
       </section>
@@ -50,16 +78,35 @@
       <h2>CONTACT</h2>
       <ul id="contact-list">
         <li>
-          <img src="@/assets/images/place.svg" alt="map icon">
-          7103 Harrison Ave., Pittsburgh PA 15218
+          <a
+            href="https://www.google.com.br/maps/place/7103+Harrison+Ave,+Pittsburgh,+PA+15218,+EUA/@40.4221128,-79.8999213,17z/data=!3m1!4b1!4m5!3m4!1s0x8834ee133adab909:0x2741760c0215915c!8m2!3d40.4221087!4d-79.8977326"
+            target="_blank"
+          >
+            <img src="@/assets/images/place.svg" alt="map icon" />
+            7103 Harrison Ave., Pittsburgh PA 15218
+          </a>
         </li>
         <li>
-          <img src="@/assets/images/phone.svg" alt="phone icon">
-          +1 (412) 715-3768
+          <a
+            href="tel:+14127153768"
+            @click="
+              ga('send', 'event', {
+                eventCategory: 'Contact',
+                eventAction: 'Call',
+                eventLabel: 'Mobile Button',
+              })
+            "
+            target="_blank"
+          >
+            <img src="@/assets/images/phone.svg" alt="phone icon" />
+            +1 (412) 715-3768
+          </a>
         </li>
         <li>
-          <img src="@/assets/images/mail.svg" alt="mail icon">
-          ijbrentalsllc@gmail.com
+          <a href="mailto:ijbrentalsllc@gmail.com" target="_blank">
+            <img src="@/assets/images/mail.svg" alt="mail icon" />
+            ijbrentalsllc@gmail.com
+          </a>
         </li>
       </ul>
 
@@ -80,7 +127,7 @@ import Footer from "@/components/Footer.vue";
 import SideBar from "@/components/SideBar.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
     Nav,
     Button,
@@ -88,37 +135,42 @@ export default {
     Arrow,
     SocialLinks,
     Footer,
-    SideBar
+    SideBar,
   },
   data() {
     return {
       slides: [
-        { image: "/images/advantages/family.webp", message: "Ease and comfort for you and your family" },
-        { image: "/images/advantages/house.webp", message: "Big houses in perfect condition" },
-        { image: "/images/advantages/garden.webp", message: "Beautiful, well-kept gardens" },
+        {
+          image: "/images/advantages/family.webp",
+          message: "Ease and comfort for you and your family",
+        },
+        {
+          image: "/images/advantages/house.webp",
+          message: "Big houses in perfect condition",
+        },
+        {
+          image: "/images/advantages/garden.webp",
+          message: "Beautiful, well-kept gardens",
+        },
       ],
       windowHeight: false,
       windowHeightFaq: false,
-      windowHeightAdvantages: false
-    }
+      windowHeightAdvantages: false,
+    };
   },
   mounted() {
     this.$nextTick(() => {
-      window.addEventListener('scroll', this.handleScroll)
+      window.addEventListener("scroll", this.handleScroll);
     }),
-
-
       this.$nextTick(() => {
-        window.addEventListener('scroll', this.handleScrollTransitionRight)
+        window.addEventListener("scroll", this.handleScrollTransitionRight);
       }),
-
-      this.windowHeight = true
+      (this.windowHeight = true);
   },
-
 
   methods: {
     scrollPage() {
-      window.scrollTo({ top: 650, behavior: 'smooth' });
+      window.scrollTo({ top: 650, behavior: "smooth" });
     },
 
     handleScroll() {
@@ -129,22 +181,20 @@ export default {
       } else if (currentHeight >= 800) {
         this.windowHeightFaq = true;
       }
-      return
+      return;
     },
-
 
     handleScrollTransitionRight() {
       const currentHeightToTransition = window.scrollY;
 
-      console.log(currentHeightToTransition);
       if (currentHeightToTransition > 200) {
         this.windowHeightAdvantages = true;
       } else {
         // this.windowHeightAdvantages = false;
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped lang="scss">
@@ -171,12 +221,12 @@ export default {
       border-radius: 50px 0 0 50px;
       z-index: 100;
     }
-
   }
 
   .banner-img {
-    background-image:
-      linear-gradient((180deg, rgba(37, 36, 36, 0.7) 5%, transparent)),
+    background-image: linear-gradient(
+        (180deg, rgba(37, 36, 36, 0.7) 5%, transparent)
+      ),
       url(@/assets/images/pexels-binyamin-mellish-1396122.webp);
     overflow-y: hidden;
   }
@@ -199,7 +249,6 @@ export default {
       text-align: center;
     }
   }
-
 
   .fade-enter-active {
     animation: go 2s;
@@ -229,7 +278,13 @@ export default {
     -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
 
-    background: radial-gradient(closest-side at 50%, rgba(0, 0, 0, .2) 30%, rgba(0, 0, 0, .2) 60%, rgba(0, 0, 0, .2) 75%, transparent);
+    background: radial-gradient(
+      closest-side at 50%,
+      rgba(0, 0, 0, 0.2) 30%,
+      rgba(0, 0, 0, 0.2) 60%,
+      rgba(0, 0, 0, 0.2) 75%,
+      transparent
+    );
 
     padding: 1.5rem 0;
 
@@ -257,7 +312,6 @@ export default {
       display: flex;
       justify-content: space-between;
 
-
       @include responsiveHalf {
         flex-direction: column;
       }
@@ -270,10 +324,9 @@ export default {
           margin-block: -2rem 3rem;
         }
 
-
         span {
           background-color: $baseGreen;
-          padding: .3rem;
+          padding: 0.3rem;
           font-weight: 400;
           font-size: 1.5rem;
           letter-spacing: 0.2em;
@@ -297,7 +350,7 @@ export default {
     }
 
     .button-advantages {
-      padding: .5rem 2rem;
+      padding: 0.5rem 2rem;
 
       &:hover {
         border: 1px solid $baseGreen;
@@ -320,7 +373,7 @@ export default {
 
   #feedbacks {
     background-image: url("@/assets/images/texture.svg");
-    background-color: #E0EDEA;
+    background-color: #e0edea;
 
     background-size: contain;
 
@@ -333,7 +386,6 @@ export default {
       @include responsiveHalf {
         width: 80%;
       }
-
 
       h2,
       p {
@@ -390,10 +442,22 @@ export default {
       width: 40%;
       margin: 1rem auto;
 
+      @include responsiveMobile {
+        margin-inline: 0;
+      }
+
+      li {
+        a {
+          color: #000;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+      }
+
       @include responsiveHalfMobile {
         width: 60%;
       }
-
 
       li {
         margin-bottom: 2rem;
@@ -404,7 +468,7 @@ export default {
 
         @include responsiveHalfMobile {
           &:last-child {
-            font-size: .9rem;
+            font-size: 0.9rem;
           }
         }
 
@@ -416,7 +480,7 @@ export default {
   }
 }
 
-@media(max-width: 800px) {
+@media (max-width: 800px) {
   .advantages {
     &-carousel {
       order: 2;
