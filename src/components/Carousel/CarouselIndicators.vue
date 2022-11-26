@@ -43,7 +43,7 @@ export default defineComponent({
   background-color: #19493d;
   margin: 0.2em;
   opacity: 0.8;
-  border-radius: 50%;
+  border-radius: 100%;
 }
 
 .active {
