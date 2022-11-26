@@ -1,7 +1,7 @@
 <template>
   <nav class="nav general-margin">
     <router-link to="/" class="nav-url">
-      <img src="@/assets/logo.png" alt="alt" class="nav-url-logo">
+      <img src="@/assets/logo.png" alt="IJB renatlls logo" class="nav-url-logo">
     </router-link>
 
     <ul class="nav-links">

@@ -215,7 +215,7 @@ export default {
 
       display: none;
       position: fixed;
-      right: 0;
+      right: 0px;
       top: 100px;
       background-color: $baseGreen;
       border-radius: 50px 0 0 50px;
@@ -247,6 +247,10 @@ export default {
     @include responsiveHalf {
       margin-inline: auto;
       text-align: center;
+    }
+
+    @media (min-width: 1300px) {
+      margin-top: 7rem;
     }
   }
 
@@ -299,6 +303,11 @@ export default {
   .advantages {
     position: relative;
     max-width: 100%;
+
+    @media (min-width: 1544px) {
+      width: 71vw;
+      margin-inline: auto;
+    }
 
     .general-margin {
       @include responsiveHalf {
@@ -367,6 +376,10 @@ export default {
 
       @include responsiveHalf {
         width: 100%;
+      }
+
+      @media (min-width: 1300px) {
+        margin-inline: 0;
       }
     }
   }
@@ -441,6 +454,10 @@ export default {
       text-align: start;
       width: 40%;
       margin: 1rem auto;
+
+      @media (min-width: 1300px) {
+        width: 30%;
+      }
 
       @include responsiveMobile {
         margin-inline: 0;
