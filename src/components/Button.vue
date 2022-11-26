@@ -17,7 +17,6 @@ export default defineComponent({
 <style lang="scss">
 .button {
     background-color: $baseGreen;
-    opacity: 0.8;
     border-radius: 20px;
 
     box-sizing: border-box;
@@ -29,7 +28,7 @@ export default defineComponent({
     transition: color .2s, background-color .3s;
 
     &:hover {
-        background-color: rgba($color: #fff, $alpha: .8);
+        background-color: rgba($color: #fff, $alpha: 1);
         color: $baseGreen;
     }
 

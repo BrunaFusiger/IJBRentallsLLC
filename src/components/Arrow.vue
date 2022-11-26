@@ -24,6 +24,14 @@ export default defineComponent({
         top: 65%;
     }
 
+    @media (max-width: 435px) {
+        top: 75%;
+    }
+
+    @include responsiveMobile {
+        top: 78%;
+    }
+
     span {
         display: block;
         width: 2rem;

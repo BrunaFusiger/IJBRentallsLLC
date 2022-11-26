@@ -6,23 +6,25 @@
 
       <Nav />
       <section class="banner-text general-margin">
-        <h1 class="title title-local">THE BEST HOMES AND APARTAMENTS IN PITTSBURGH FOR RENT </h1>
+        <transition v-show="windowHeight" appear appear-active-class="fade-enter-active" mode="out-in">
+          <h1 class="title title-local">THE BEST HOMES AND APARTAMENTS IN PITTSBURGH FOR RENT
+          </h1>
+        </transition>
         <div class="animtionY">
           <Button class="button-local" msg="See" />
         </div>
       </section>
+
 
       <Arrow @click="scrollPage" />
     </div>
 
     <div class="advantages general-margin">
       <div class="advantages-aligment">
-
         <section class="advantages-carousel">
           <carousel :slides="slides" :interval="3000" controls indicators></carousel>
         </section>
-
-        <section class="advantages-text">
+        <section class="advantages-text advantages-text-transition" v-show="windowHeightAdvantages">
           <h2><span>ADVANTAGES</span> OF <br> RENTING A HOUSE WITH</h2>
           <h1 class="title">IJB</h1>
           <Button class="button-advantages" msg="Rent now" />
@@ -32,13 +34,13 @@
 
     <div id="feedbacks">
       <section id="feedbacks-text">
-        <h2>WHAT IS IT LIKE TO RENT AND LIVE IN OUR APARTAMENTS?</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla maecenas sapien condimentum nam. Ac lorem diam
-          id cursus feugiat. NLorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla maecenas sapien condimentum
-          nam. Ac lorem diam id cursus feugiat. </p>
+        <transition v-show="windowHeightFaq" appear appear-active-class="fade-enter-active" mode="out-in">
+          <h2>WHAT IS IT LIKE TO RENT AND LIVE IN OUR APARTAMENTS?</h2>
+        </transition>
+        <p>We know how important a cozy environment is to be with the family or to rest after a long day at work. And that's why we always seek the best in our apartments and services. And if you have a problem, we will be available to help you solve it.</p>
 
         <div id="feedbacks-text-people">
-          <img src="https://picsum.photos/200/300" alt="Person's photo">
+          <img src="@/assets/images/SimoneFusiger.jpeg" alt="Simone Fusiger's photo">
           <p>Simone Fusiger</p>
         </div>
       </section>
@@ -95,14 +97,53 @@ export default {
         { image: "/images/advantages/house.webp", message: "Big houses in perfect condition" },
         { image: "/images/advantages/garden.webp", message: "Beautiful, well-kept gardens" },
       ],
+      windowHeight: false,
+      windowHeightFaq: false,
+      windowHeightAdvantages: false
     }
   },
+  mounted() {
+    this.$nextTick(() => {
+      window.addEventListener('scroll', this.handleScroll)
+    }),
+
+
+      this.$nextTick(() => {
+        window.addEventListener('scroll', this.handleScrollTransitionRight)
+      }),
+
+      this.windowHeight = true
+  },
+
+
   methods: {
     scrollPage() {
-      window.scrollTo({ top: 610, behavior: 'smooth' });
+      window.scrollTo({ top: 650, behavior: 'smooth' });
+    },
+
+    handleScroll() {
+      const currentHeight = window.scrollY;
+
+      if (currentHeight <= 500) {
+        this.windowHeight = true;
+      } else if (currentHeight >= 800) {
+        this.windowHeightFaq = true;
+      }
+      return
+    },
+
+
+    handleScrollTransitionRight() {
+      const currentHeightToTransition = window.scrollY;
+
+      console.log(currentHeightToTransition);
+      if (currentHeightToTransition > 200) {
+        this.windowHeightAdvantages = true;
+      } else {
+        // this.windowHeightAdvantages = false;
+      }
     }
   }
-
 }
 </script>
 
@@ -156,6 +197,27 @@ export default {
     @include responsiveHalf {
       margin-inline: auto;
       text-align: center;
+    }
+  }
+
+
+  .fade-enter-active {
+    animation: go 2s;
+  }
+
+  @keyframes go {
+    from {
+      transform: translateX(-100px);
+    }
+  }
+
+  .advantages-text-transition {
+    animation: goRight 2s;
+  }
+
+  @keyframes goRight {
+    from {
+      transform: translateX(100px);
     }
   }
 
