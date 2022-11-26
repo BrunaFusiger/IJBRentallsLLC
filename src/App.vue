@@ -5,18 +5,17 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent } from "vue";
 
-export default defineComponent({
-})
+export default defineComponent({});
 </script>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Aboreto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&display=swap");
 
 * {
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   letter-spacing: 0.05em;
   font-size: 1rem;
   margin: 0;
@@ -38,7 +37,7 @@ export default defineComponent({
 
   .uppercase {
     text-transform: uppercase;
-    letter-spacing: .1rem;
+    letter-spacing: 0.1rem;
   }
 
   //general aligment|
@@ -51,17 +50,16 @@ export default defineComponent({
   }
 
   .title {
-    font-family: 'Aboreto', cursive;
+    font-family: "Aboreto", cursive;
   }
 
   //animation Y
   .animtionY {
-    animation: movingY .8s ease-in-out 0ms infinite alternate-reverse;
+    animation: movingY 0.8s ease-in-out 0ms infinite alternate-reverse;
   }
 
   @keyframes movingY {
     0% {
-
       transform: translateY(5%);
     }
 
@@ -70,11 +68,9 @@ export default defineComponent({
     }
 
     100% {
-
       transform: translateY(-5%);
     }
   }
-
 
   h2 {
     font-style: normal;
@@ -106,6 +102,14 @@ export default defineComponent({
 
   .pointer {
     cursor: pointer;
+  }
+
+  input,
+  textarea,
+  button,
+  select,
+  a {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 }
 </style>
