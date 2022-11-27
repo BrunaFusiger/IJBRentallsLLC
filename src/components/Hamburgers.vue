@@ -26,8 +26,6 @@ export default {
 }
 .hamburger-inner {
     color: #fff;
-    width: 44px;
-    height: 2px;
     background-color: #fff;
 }
 </style>
