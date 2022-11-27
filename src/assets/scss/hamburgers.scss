@@ -5,9 +5,10 @@
 }
 
 .hamburger-inner[data-v-3c97e6ba], .hamburger-inner[data-v-3c97e6ba]::before, .hamburger-inner[data-v-3c97e6ba]::after {
-    background-color: #fff;
+    background-color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
 }
 
 .hamburger.is-active .hamburger-inner[data-v-3c97e6ba], .hamburger.is-active .hamburger-inner[data-v-3c97e6ba]::before, .hamburger.is-active .hamburger-inner[data-v-3c97e6ba]::after {
-    background-color: #fff;
+    width: 30px;
 }
